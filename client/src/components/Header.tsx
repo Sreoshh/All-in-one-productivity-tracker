@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -17,6 +18,7 @@ interface HeaderProps {
 }
 
 export default function Header({ totalStreak, userName = "User" }: HeaderProps) {
+  const [, setLocation] = useLocation();
   const [isDark, setIsDark] = useState(false);
   const [currentDate, setCurrentDate] = useState("");
 
@@ -105,13 +107,9 @@ export default function Header({ totalStreak, userName = "User" }: HeaderProps) 
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setLocation("/settings")} data-testid="menu-profile">
                 <User className="w-4 h-4 mr-2" />
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Settings className="w-4 h-4 mr-2" />
-                Settings
+                Profile & Settings
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

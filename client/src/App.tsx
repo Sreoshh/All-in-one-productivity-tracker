@@ -7,11 +7,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import WelcomeScreen from "@/components/WelcomeScreen";
 import Header from "@/components/Header";
 import Dashboard from "@/components/Dashboard";
+import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 
 function MainApp() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [totalStreak, setTotalStreak] = useState(0);
+  const [userName, setUserName] = useState("User");
 
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
@@ -22,6 +24,11 @@ function MainApp() {
     const savedStreak = localStorage.getItem("totalStreak");
     if (savedStreak) {
       setTotalStreak(parseInt(savedStreak, 10));
+    }
+
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+      setUserName(savedName);
     }
   }, []);
 
@@ -36,7 +43,7 @@ function MainApp() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header totalStreak={totalStreak} userName="User" />
+      <Header totalStreak={totalStreak} userName={userName} />
       <main>
         <Dashboard />
       </main>
@@ -48,6 +55,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={MainApp} />
+      <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>
   );
