@@ -15,13 +15,13 @@ interface CategoryData {
 }
 
 const initialCategories: CategoryData[] = [
+  { type: "team-updates", title: "Team Updates", habits: [] },
   { type: "be-yourself", title: "Be Yourself", habits: [] },
   { type: "daily-thoughts", title: "Daily Thoughts", habits: [] },
   { type: "work", title: "Work", habits: [] },
   { type: "skills", title: "Skills", habits: [] },
   { type: "checklist", title: "Checklist", habits: [] },
   { type: "end-day", title: "End Day Thoughts", habits: [] },
-  { type: "team-updates", title: "Team Updates", habits: [] },
   { type: "reading", title: "Reading", habits: [] },
 ];
 

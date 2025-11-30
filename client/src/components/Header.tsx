@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Moon, Sun, Settings, User, Bell, Sparkles } from "lucide-react";
+import { Moon, Sun, Settings, User, Bell } from "lucide-react";
 import StreakDisplay from "./StreakDisplay";
 
 interface HeaderProps {
@@ -57,10 +57,14 @@ export default function Header({ totalStreak, userName = "User" }: HeaderProps) 
       <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-primary" />
+            <svg width="20" height="20" viewBox="0 0 24 24" className="text-primary">
+              <path d="M12 2C12 2 10 6 10 10C10 14 12 18 12 18C12 18 14 14 14 10C14 6 12 2 12 2Z" fill="currentColor" opacity="0.7"/>
+              <path d="M8 6C8 6 6 9 6 12C6 15 8 18 8 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+              <path d="M16 6C16 6 18 9 18 12C18 15 16 18 16 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+            </svg>
           </div>
           <div className="hidden sm:block">
-            <h1 className="font-serif text-lg font-semibold text-foreground">Bloom</h1>
+            <h1 className="font-serif text-lg font-semibold text-foreground">Habit Tracker</h1>
           </div>
         </div>
 
