@@ -1,0 +1,33 @@
+C:\Users\user\Downloads\All-in-one-productivity-tracker\All-in-one-productivity-tracker>npm install
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\user\\Downloads\\All-in-one-productivity-tracker\\All-in-one-productivity-tracker\\node_modules',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\user\Downloads\All-in-one-productivity-tracker\All-in-one-productivity-tracker\node_modules\@tanstack\react-query\build\codemods\src\v5'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\user\\Downloads\\All-in-one-productivity-tracker\\All-in-one-productivity-tracker\\node_modules\\@tanstack\\react-query\\build\\codemods\\src\\v5'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\user\\Downloads\\All-in-one-productivity-tracker\\All-in-one-productivity-tracker\\node_modules\\@tanstack',
+npm warn cleanup     [Error: EPERM: operation not permitted, rmdir 'C:\Users\user\Downloads\All-in-one-productivity-tracker\All-in-one-productivity-tracker\node_modules\@tanstack\react-query\build'] {
+npm warn cleanup       errno: -4048,
+npm warn cleanup       code: 'EPERM',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\user\\Downloads\\All-in-one-productivity-tracker\\All-in-one-productivity-tracker\\node_modules\\@tanstack\\react-query\\build'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ERR_SSL_CIPHER_OPERATION_FAILED
+npm error E8310000:error:1C800066:Provider routines:ossl_gcm_stream_update:cipher operation failed:c:\ws\deps\openssl\openssl\providers\implementations\ciphers\ciphercommon_gcm.c:325:
+npm error
+npm error A complete log of this run can be found in: C:\Users\user\AppData\Local\npm-cache\_logs\2025-11-30T17_10_51_870Z-debug-0.log      
+
+C:\Users\user\Downloads\All-in-one-productivity-tracker\All-in-one-productivity-tracker>node -v
+v22.17.0
+
+C:\Users\user\Downloads\All-in-one-productivity-tracker\All-in-one-productivity-tracker>npm -v
+10.9.2
