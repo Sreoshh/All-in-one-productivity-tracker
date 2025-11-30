@@ -4,9 +4,7 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "dist/index.cjs": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api" }
+  ]
 }
