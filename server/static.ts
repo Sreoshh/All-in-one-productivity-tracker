@@ -1,19 +1,23 @@
-import express, { type Express } from "express";
-import fs from "fs";
+import { Express } from "express";
 import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "public");
-  if (!fs.existsSync(distPath)) {
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
-    );
-  }
+  const publicDir = path.resolve(__dirname, "..", "dist", "public");
+  
+  // Serve static files
+  app.use(express.static(publicDir));
 
-  app.use(express.static(distPath));
-
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+  // SPA fallback - serve index.html for all non-API routes
+  app.get("*", (req, res) => {
+    const indexPath = path.join(publicDir, "index.html");
+    if (fs.existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      res.status(404).send("Not found");
+    }
   });
 }
