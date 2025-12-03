@@ -1,18 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist/public" }
-    },
-    {
-      "src": "api/**/*.mjs",
-      "use": "@vercel/node"
+  "buildCommand": "node scripts/build-vercel.mjs",
+  "installCommand": "npm ci",
+  "outputDirectory": "dist/public",
+  "functions": {
+    "api/**/*.mjs": {
+      "runtime": "nodejs18.x"
     }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "(.*)", "dest": "/index.html" }
-  ]
+  }
 }
