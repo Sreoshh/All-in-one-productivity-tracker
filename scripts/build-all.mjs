@@ -30,8 +30,9 @@ try {
 
 console.log('\nBuilding server...');
 try {
-  // Directly call build-server.mjs instead of npm run build:server
-  execSync('node scripts/build-server.mjs', { stdio: 'inherit', cwd: rootDir });
+  // Use build-server.mjs directly to transpile server files to ESM
+  const buildServerPath = join(rootDir, 'scripts/build-server.mjs');
+  execSync(`node "${buildServerPath}"`, { stdio: 'inherit', shell: true });
 } catch (e) {
   console.error('Server build failed:', e.message);
   process.exit(1);
