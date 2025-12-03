@@ -3,12 +3,6 @@
   "buildCommand": "node scripts/build-vercel.mjs",
   "installCommand": "npm ci",
   "outputDirectory": "dist/public",
-  "builds": [
-    {
-      "src": "api/**/*.mjs",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
