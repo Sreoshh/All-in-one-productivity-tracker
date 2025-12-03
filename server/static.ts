@@ -7,6 +7,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function serveStatic(app: Express) {
   const publicDir = path.resolve(__dirname, "public");
+  console.log("[static] __dirname:", __dirname);
+  console.log("[static] publicDir:", publicDir);
+  console.log("[static] index.html exists:", fs.existsSync(path.join(publicDir, "index.html")));
   
   // Serve static files
   app.use(express.static(publicDir));
