@@ -21,4 +21,16 @@ try {
   process.exit(1);
 }
 
-console.log('[Vercel Build] Done - dist/public ready for static deployment');
+  // Ensure a top-level `public` directory exists for Vercel to pick up
+  const srcPublic = join(rootDir, 'dist', 'public');
+  const destPublic = join(rootDir, 'public');
+  try {
+    mkdirSync(destPublic, { recursive: true });
+    cpSync(srcPublic, destPublic, { recursive: true, force: true });
+    console.log('[Vercel Build] ✓ Copied dist/public -> public');
+  } catch (err) {
+    console.error('[Vercel Build] Failed copying dist/public -> public', err.message);
+    process.exit(1);
+  }
+
+  console.log('[Vercel Build] Done - public ready for static deployment');
