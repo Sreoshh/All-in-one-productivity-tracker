@@ -6,7 +6,7 @@ import fs from "fs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function serveStatic(app: Express) {
-  const publicDir = path.resolve(__dirname, "..", "dist", "public");
+  const publicDir = path.resolve(__dirname, "public");
   
   // Serve static files
   app.use(express.static(publicDir));
